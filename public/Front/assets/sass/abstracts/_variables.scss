@@ -1,0 +1,72 @@
+/* ======= variables ======= */
+
+$theme-font: 'Poppins', sans-serif;
+/* ======= font-sizes ======= */
+:root {
+  --body-font-size: 16px;
+  --h1-font-size: 63px;
+  --h2-font-size: 40px;
+  --h3-font-size: 30px;
+  --h4-font-size: 25px;
+  --h5-font-size: 20px;
+  --h6-font-size: 18px;
+  --parag-font-size: 16px;
+  --btn-font-size: 17px;
+  --nav-links-font-size: 14px;
+  --font-size-14: 14px;
+  --font-size-13: 13px;
+  --font-size-15: 15px;
+  --font-size-16: 15px;
+  --font-size-47: 47px;
+  --font-size-18: 18px;
+  --font-size-20: 20px;
+  --font-size-24: 24px;
+  @include xl {
+    --h1-font-size: 55px;
+  }
+  @include md {
+    --h1-font-size: 45px;
+    --font-size-20: 16px;
+    --h2-font-size: 35px;
+    --font-size-20: 16px;
+    --h3-font-size: 25px;
+    --h4-font-size: 20px;
+    --h5-font-size: 18px;
+    --font-size-18: 16px;
+  }
+  @include sm {
+    --h1-font-size: 40px;
+    --h2-font-size: 30px;
+    --parag-font-size: 14px;
+  }
+}
+
+/* ======= colors======= */
+
+$white-color: #fff;
+$black-color: #000;
+$black-color-1: #22232b;
+$primary-bold-color: #0462d3;
+$primary-color: #299dee;
+$primary-light-color: #d1e4f9;
+$primary-light-color-2: #eff2fb;
+$secondary-color: #ffb700;
+$grey-color: #4b4b4b;
+$grey-color-1: #707070;
+$text-color: #393939;
+$red-color: #d30404;
+$grey-light-color: #ededed;
+$grey-light-color-1: #f0f0f0;
+$grey-light-color-2: #cbcbcb;
+$grey-color-2: #8c98a9;
+// Font Weights
+$extra-light: 200;
+$light: 300;
+$normal: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+$extra-bold: 800;
+$extra-extra-bold: 900;
+// Transitions
+$half-second-transition: all 0.5s;

@@ -1,0 +1,78 @@
+/* ========================================== 
+                 Base styles 
+ ========================================== */
+
+html,
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+html[lang='ar'] {
+  text-align: right;
+  direction: rtl;
+}
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+button {
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+}
+
+body {
+  font-size: var(--body-font-size);
+  color: $black-color;
+  line-height: 1.8em;
+  font-weight: $normal;
+  background: $white-color;
+  font-family: $theme-font;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  overflow-x: hidden;
+  main {
+    flex: 1;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $primary-color;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.dropdown-menu.show {
+  position: absolute;
+}
+
+.svg-transition {
+  path {
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.primary-text {
+  color: $primary-color;
+}
+
+.upper-case {
+  text-transform: uppercase;
+}
+
+.text-black {
+  color: $black-color;
+}
