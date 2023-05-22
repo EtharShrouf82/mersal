@@ -91,6 +91,48 @@
                                         value="{{ $settings->translations->email ?? '' }}">
                 </td>
             </tr>
+            <tr>
+                <td width="15%">عنوان لصفحة الشاشات<span class="text-danger required">*</span></td>
+                <td class="entd"><input type="text" class="form-control" name="digital_title"
+                                        value="{{ $settings->translations->digital_title ?? '' }}">
+                </td>
+                <td width="15%">النص في صفحة الشاشات<span class="text-danger required">*</span></td>
+                <td class="entd">
+                    <textarea class="form-control" name="digital_text">{{ $settings->translations->digital_text ?? '' }}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td width="15%">عنوان أول  cctv <span class="text-danger required">*</span></td>
+                <td class="entd"><input type="text" class="form-control" name="cctv_title"
+                                        value="{{ $settings->translations->cctv_title ?? '' }}">
+                </td>
+                <td width="15%">عنوان ثاني  cctv <span class="text-danger required">*</span></td>
+                <td class="entd"><input type="text" class="form-control" name="cctv_title_two"
+                                        value="{{ $settings->translations->cctv_title_two ?? '' }}">
+                </td>
+            </tr>
+            <tr>
+                <td width="15%">النص في صفحة الشاشات<span class="text-danger required">*</span></td>
+                <td class="entd" colspan="3">
+                    <textarea class="form-control" name="cctv_description">{{ $settings->translations->cctv_description ?? '' }}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td width="15%">عنوان الميديا<span class="text-danger required">*</span></td>
+                <td class="entd"><input type="text" class="form-control" name="social_title"
+                                        value="{{ $settings->translations->social_title ?? '' }}">
+                </td>
+                <td width="15%">النص في الميديا<span class="text-danger required">*</span></td>
+                <td class="entd">
+                    <textarea class="form-control" name="social_description">{{ $settings->translations->social_description ?? '' }}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td width="15%">النص في الميديا<span class="text-danger required">*</span></td>
+                <td colspan="3" class="entd">
+                    <textarea class="form-control" name="client_text">{{ $settings->translations->client_text ?? '' }}</textarea>
+                </td>
+            </tr>
             @can('edit_settings')
                 <tr>
                     <td colspan="4" class="center">

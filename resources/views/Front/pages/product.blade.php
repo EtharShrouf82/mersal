@@ -14,7 +14,8 @@
                                     <img
                                         class="img-full"
                                         src="{{ $product->img }}"
-                                        alt="product image"
+                                        alt="{{ $product->title }} | {{ $settings->site_name }}"
+                                        title="{{ $product->title }} | {{ $settings->site_name }}"
                                     />
                                 </div>
                                 <div class="gallery-items-wrap">
@@ -25,7 +26,8 @@
                                                     <img
                                                         class="image-gallery-item img-full"
                                                         src="{{ asset("/images/products/".$img->img) }}"
-                                                        alt="Nature"
+                                                        alt="{{ $product->title }} | {{ $settings->site_name }}"
+                                                        title="{{ $product->title }} | {{ $settings->site_name }}"
                                                     />
                                                 </div>
                                             </div>
@@ -46,13 +48,9 @@
                                     @endforeach
                                 </div>
                                 <div class="description mt-5">
-                                    <h6 class="text-black">Description</h6>
                                     <p>{!! $product->description !!}</p>
-                                    <button id="readmoreBtn">Read more...</button>
                                 </div>
-                                <div class="order-product-wrap">
-                                    <button class="btn">Order Product</button>
-                                </div>
+                                @include("Front.inc.partials.whats_call_subscribe")
                             </div>
                         </div>
                     </div>
@@ -63,8 +61,8 @@
         <section class="similar-products">
             <div class="container">
                 <h2 class="text-black position-relative">
-                    <span> Similar Products </span>
-                    <a href="#" title="Show More">Show More</a>
+                    <span> {{ __('translations.Similar Products') }} </span>
+                    <a href="{{ route('products') }}" title="Show More">{{ __("translations.Show More") }}</a>
                     <div class="star-shape">
                         <img
                             class="img-fluid"
@@ -83,5 +81,25 @@
             </div>
         </section>
     </section>
+    @push('scripts')
+        <script>
+            $('.image-gallery-item-wrap').on('click', function () {
+                $('.image-gallery-item-wrap').removeClass('active');
+                $(this).addClass('active');
+                $('.main-image-wrap')
+                    .children('img')
+                    .attr('src', $(this).children('img').attr('src'));
+            });
 
+            // $('#readmoreBtn').on('click', function () {
+            //     var neighborParag = $(this).siblings('p');
+            //     neighborParag.toggleClass('expand');
+            //     if (neighborParag.hasClass('expand')) {
+            //         $(this).text('Read less...');
+            //     } else {
+            //         $(this).text('Read more...');
+            //     }
+            // });
+        </script>
+    @endpush
 @endsection

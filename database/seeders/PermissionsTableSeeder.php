@@ -99,6 +99,13 @@ class PermissionsTableSeeder extends Seeder
             ['id' => 65, 'name' => 'edit_price', 'alias' => 'تعديل', 'parent' => 63],
             ['id' => 66, 'name' => 'delete_price', 'alias' => 'حذف', 'parent' => 63],
 
+            ['id' => 67, 'name' => 'jobs', 'alias' => 'الوظائف', 'parent' => 0],
+            ['id' => 68, 'name' => 'add_job', 'alias' => 'إضافة', 'parent' => 67],
+            ['id' => 69, 'name' => 'edit_job', 'alias' => 'تعديل', 'parent' => 67],
+            ['id' => 70, 'name' => 'delete_job', 'alias' => 'حذف', 'parent' => 67],
+
+            ['id' => 71, 'name' => 'jobs_apply', 'alias' => 'طلبات التوظيف', 'parent' => 0],
+
         ];
 
         foreach ($permissions as $permission) {

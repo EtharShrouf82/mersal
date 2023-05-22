@@ -48,7 +48,9 @@ class ScreenPrice extends Model
         );
     }
 
-    public function getPriceAfterDiscount(): string
+    protected $appends = ['priceAfterDiscount'];
+
+    public function getPriceAfterDiscountAttribute(): string
     {
         if($this->discount){
             return number_format($this->price - ($this->price * $this->discount / 100));

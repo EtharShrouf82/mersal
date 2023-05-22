@@ -33,31 +33,6 @@
                         </div>
                     </div>
                 </div>
-{{--                <h5 class="mb-2">صورة الخدمة الرئيسية</h5>--}}
-{{--                @error('vimg')--}}
-{{--                <div class="alert alert-danger">{{$message}}</div>--}}
-{{--                @enderror--}}
-{{--                <div>--}}
-{{--                    <div class="row">--}}
-{{--                        <div class="col-6">--}}
-{{--                            <label class="custom-file">--}}
-{{--                                <input type="file" id="mainPic" class="custom-file-input">--}}
-{{--                                <span class="custom-file-control custom-file-control-primary"></span>--}}
-{{--                            </label>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-6">--}}
-{{--                                                <span id="mainPicShow">--}}
-{{--                                <div class="row">--}}
-{{--                                    <div class="col-4 mt-2 mb-2">--}}
-{{--                                        <div class="imgBox text-center">--}}
-
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </span>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
             </div>
         </div>
         <div class="card m-3">
@@ -95,29 +70,12 @@
                         @error('follow')
                         <div class="alert alert-danger">{{$message}}</div>
                         @enderror
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input"
-                                   @if($service->follow ==1) checked @endif
-                                   value="1"
-                                   type="radio"
-                                   name="follow"
-                                   id="flexRadioFollow1">
-                            <label class="form-check-label" for="flexRadioFollow1">
-                                خدمات أنظمة الكاميرات والحماية
-                            </label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input"
-                                   @if($service->follow ==0) checked @endif
-                                   type="radio"
-                                   value="0"
-                                   name="follow"
-                                   id="flexRadioFollow2"
-                            >
-                            <label class="form-check-label" for="flexRadioFollow2">
-                                خدمات التصمم والإعلانات
-                            </label>
-                        </div>
+                        <select name="follow" required class="form-control">
+                            <option value="">الرجاء إختيار يتبع من</option>
+                            <option @if($service->follow ==3) selected @endif value="3">خدمات عامة</option>
+                            <option @if($service->follow ==2) selected @endif  value="2"> خدمات التصمم والإعلانات</option>
+                            <option @if($service->follow ==1) selected @endif  value="1">خدمات أنظمة الكاميرات والحماية</option>
+                        </select>
                     </div>
                     <div class="col-6">
                         <label for="price" class="form-label">حالة (الظهور بالموقع)</label>

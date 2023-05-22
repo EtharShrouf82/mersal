@@ -38,6 +38,19 @@ class UploadController extends Controller
         }
     }
 
+    public function uploadJob(Request $request)
+    {
+        $handle = new \Verot\Upload\Upload($_FILES['file']);
+        if ($handle->uploaded) {
+            $handle->process(public_path('images').'/jobs/');
+            if ($handle->processed) {
+                return $handle->file_dst_name;
+            } else {
+                echo 'error : '.$handle->error;
+            }
+        }
+    }
+
     public function uploadService(Request $request)
     {
         $handle = new \Verot\Upload\Upload($_FILES['file']);

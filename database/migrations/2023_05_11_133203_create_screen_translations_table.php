@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('screen_id')->constrained()->cascadeOnDelete();
             $table->string('title');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('locale', 10)->index();
             $table->unique(['screen_id', 'locale']);
             $table->timestamps();

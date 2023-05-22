@@ -55,6 +55,14 @@ class SettingController extends Controller
                 'email' => $request->input('email'),
                 'header_message' => $request->input('header_message'),
                 'address' => $request->input('address'),
+                'digital_title' => $request->input('digital_title'),
+                'digital_text' => $request->input('digital_text'),
+                'cctv_title' => $request->input('cctv_title'),
+                'cctv_title_two' => $request->input('cctv_title_two'),
+                'cctv_description' => $request->input('cctv_description'),
+                'social_title' => $request->input('social_title'),
+                'social_description' => $request->input('social_description'),
+                'client_text' => $request->input('client_text'),
             ]);
 
         return redirect()->route('settings')->with('success', 'تم التعديل بنجاح');

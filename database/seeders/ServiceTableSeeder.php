@@ -73,6 +73,30 @@ class ServiceTableSeeder extends Seeder
                 'title' => 'Branding',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
             ],
+            [
+                'follow' => 3,
+                'icon' => 'cutout.svg',
+                'title' => 'DIGITAL SIGNAGES',
+                'description' => 'Bring your brand to life with professional Digital Signage designed to engage and inspire your customers and employees, More Than 130 Screen around Palestine',
+            ],
+            [
+                'follow' => 3,
+                'icon' => 'cctv-camera.svg',
+                'title' => 'CCTV SYSTEMS',
+                'description' => 'We provide security requirements of residential, commercial and other clients, with the largest assortment of security cameras and alarm systems installation.',
+            ],
+            [
+                'follow' => 3,
+                'icon' => 'social-media.svg',
+                'title' => 'DIGITAL DESIGN',
+                'description' => 'Ready to add digital design to your workflow? Explore below the different types of digital design, Web Design, Logo, Branding, Social Media, Professional Team',
+            ],
+            [
+                'follow' => 3,
+                'icon' => 'product-design.svg',
+                'title' => 'DIGITAL MARKETING',
+                'description' => 'Generate maximum return from your online campaigns with proactive support, Facebook, Instargam, Google Adwards, Tiktok ..., with Professional Team',
+            ],
         ];
 
         for ($i = 0; $i < count($services); $i++) {

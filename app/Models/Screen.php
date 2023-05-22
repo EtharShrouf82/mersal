@@ -28,7 +28,7 @@ class Screen extends Model
 
     public function screen_type(): BelongsTo
     {
-        return $this->belongsTo(ScreenType::class,'citie_id');
+        return $this->belongsTo(ScreenType::class);
     }
 
 

@@ -88,7 +88,6 @@
                 <div class="alert alert-danger">{{$message}}</div>
                 @enderror
                 <div>
-                    {{ $screen->description }}
                     <div class="mt-2 @if(LaravelLocalization::setLocale() == 'en') entd @endif">
                         <textarea id="description" class="edit form-control"
                                   name="description">{{ $screen->description }}</textarea>

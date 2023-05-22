@@ -56,6 +56,8 @@ class Service extends Model
     {
         if ($this->follow == 1) {
             $fl = '<span class="text-success">خدمات أنظمة الحماية والكاميرات</span>';
+        }elseif($this->follow == 3){
+            $fl = '<span class="text-primary">خدمات عامة</span>';
         } else {
             $fl = '<span class="text-danger">خدمات التصميم والإعلانات</span>';
         }

@@ -10,44 +10,13 @@
             <div class="row">
                 <div class="col-lg-6 anim">
                     <div class="services-start-content">
-                        <p>Find Peace Of Mind With 24/7 Monitoring</p>
-                        <h4>Smart Security Systems That Fits Your Business!</h4>
+                        <p>{{ $home_setting->translations->cctv_title }}</p>
+                        <h4>{{ $home_setting->translations->cctv_title_two }}</h4>
                     </div>
                 </div>
                 <div class="col-lg-6 anim">
                     <div class="services-end-content">
-                        <p>
-                            Because a commercial security camera system has to produce
-                            results, we offer what most security camera companies can’t.
-                            For CCTV installation companies, it’s important to treat cctv
-                            camera installation with a modern approach. Our security
-                            camera system installation department is just passionate about
-                            security installation and software.
-                        </p>
-                        <button class="btn primary-btn with-icon anim">
-                            <span>How Does It Work?</span>
-                            <span>
-                    <svg
-                        class="svg-transition"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="5.914"
-                        height="9.828"
-                        viewBox="0 0 5.914 9.828"
-                    >
-                      <path
-                          id="Icon_feather-chevron-down"
-                          data-name="Icon feather-chevron-down"
-                          d="M0,3.5,3.5,0,7,3.5"
-                          transform="translate(4.914 1.414) rotate(90)"
-                          fill="none"
-                          stroke="#fff"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                      />
-                    </svg>
-                  </span>
-                        </button>
+                        <p>{{ $home_setting->translations->cctv_description }}</p>
                     </div>
                 </div>
             </div>
@@ -62,7 +31,9 @@
                                     <div class="services-card">
                                         <div class="card-content">
                                             <div class="card-icon">
-                                                <img src="{{ $service->icon }}" alt="" title=""/>
+                                                <img src="{{ $service->icon }}"
+                                                     alt="{{ $service->title }} | {{ $settings->site_name }}"
+                                                     title="{{ $service->title }} | {{ $settings->site_name }}"/>
                                             </div>
                                             <div class="card-content">
                                                 <h5>{{ $service->title }}</h5>

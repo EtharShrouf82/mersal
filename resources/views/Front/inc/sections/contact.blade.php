@@ -23,53 +23,30 @@
             </div>
             <div class="col-lg-6 order-1 order-lg-2 anim">
                 <div class="contact-form-wrapper">
-                    <h2>Contact Us</h2>
+                    <h2>{{ __('translations.Contact Us') }}</h2>
                     <div class="contact-form">
                         <form>
-                                    <div class="mb-3">
-                                        <label for="firstName" class="form-label"
-                                        >Name</label
-                                        >
-                                        <input
-                                            type="text"
-                                            class="form-control input"
-                                            id="name"
-                                            aria-describedby="firstName"
-                                        />
-{{--                                        <div id="firstNameValidation" class="invalid-feedback">--}}
-{{--                                            this field is mandatory--}}
-{{--                                        </div>--}}
-                                    </div>
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email address</label>
-                                <input
-                                    type="email"
-                                    class="form-control input"
-                                    id="email"
-                                    aria-describedby="emailHelp"
-                                />
+                                <label for="firstName" class="form-label">{{ __('translations.Name') }}</label>
+                                <input type="text" class="form-control input" id="name" aria-describedby="firstName"/>
                             </div>
                             <div class="mb-3">
-                                <label for="validationTextarea" class="form-label"
-                                >Message</label
-                                >
-                                <textarea
-                                    class="form-control input"
-                                    id="message"
-                                    placeholder=""
-                                    required
-                                    rows="4"
-                                ></textarea>
+                                <label for="email" class="form-label">{{ __('translations.Email address') }}</label>
+                                <input type="email" class="form-control input" id="email" aria-describedby="emailHelp"/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="validationTextarea" class="form-label">{{ __('translations.Message') }}</label>
+                                <textarea class="form-control input" id="message" placeholder="" required rows="4"></textarea>
                                 <input type="hidden" id="inputHidden">
                             </div>
 
                             <button id="sendMsg" class="btn primary-btn">
-                                <span>lets chat</span>
+                                <span>{{ __('translations.lets chat') }}</span>
                             </button>
                             <div class="spinner-border text-danger hidden" id="contact_spinner" role="status">
                                 <span class="visually-hidden">Loading...</span>
                             </div>
-                            <div class="ok alert hidden">شكراً لكم، تم إرسال الرسالة بنجاح.</div>
+                            <div class="ok alert hidden">{{ __('translations.successSent') }}</div>
                         </form>
                     </div>
                 </div>

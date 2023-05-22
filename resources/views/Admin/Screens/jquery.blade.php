@@ -1,7 +1,29 @@
 <script>
     $("#city").change(function (e) {
+
         const id = $(this).val();
-        alert(id);
+        const cityArea = $("#showCity");
+        if(id == 1){
+            cityArea.html('<img style="width: 500px; position: relative" class="textImg" src="/Front/city/jenin.png">')
+        }
+    })
+
+    $('body').on('click','.textImg',function(event){
+        const mouseX = event.pageX;
+        const mouseY = event.pageY;
+        $("#position_y").val(mouseY);
+        $("#position_X").val(mouseX);
+        const color = '#000000';
+        const size = '30px';
+        $(this).html(
+            $('<div></div>')
+                .css('position', 'absolute')
+                .css('top', mouseY + 'px')
+                .css('left', mouseX + 'px')
+                .css('width', size)
+                .css('height', size)
+                .css('background-color', color)
+        );
     })
     $('#multiple_files').change(function () {
         var error_images = '';

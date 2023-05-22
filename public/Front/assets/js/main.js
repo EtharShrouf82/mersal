@@ -93,6 +93,11 @@ $( function () {
         } );
     }
 
+    $("#showHideJob").click(function (e) {
+        e.preventDefault();
+        $("#applyJob").slideToggle();
+    })
+
     if ($(".banner-carousel").length) {
         $(".banner-carousel").owlCarousel({
             loop: true,
@@ -134,9 +139,9 @@ $( function () {
         $( '#side-menu-fade' ).fadeOut();
     } );
 
-    $( '#signages-viewer img' ).on( 'click', function () {
-        $( '#area-side-menu' ).addClass( 'active' );
-    } );
+    // $( '#signages-viewer img' ).on( 'click', function () {
+    //
+    // } );
     $( '#area-menu-close' ).on( 'click', function () {
         $( '#area-side-menu' ).removeClass( 'active' );
     } );
@@ -144,11 +149,129 @@ $( function () {
         $( '#area-side-menu' ).removeClass( 'active' );
     } );
 
-    $( '.point' ).on( 'click', function () {
-        var relatedSrc = $( this ).attr( 'data-src' );
-        $( '#signages-viewer' ).addClass( 'no-after' );
-        $( '#signages-viewer .play-bt-wrap' ).fadeOut();
-        $( '#signages-viewer img' ).attr( 'src', relatedSrc );
+    $('body').on('click', '.screen_bx', function(e) {
+        e.preventDefault();
+        const id = $(this).attr('id');
+        const area = $("#area-side-menu .inner-wrapper");
+        $.ajax({
+            url: '/screen/'+id,
+            type: 'get',
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+            },
+            beforeSend: function () {
+                $('#unitsCourse').html('<img style="max-width: 30px" src="/admin/img/loading.gif">');
+            },
+            complete: function () {
+                $('#unitsCourse').html('');
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+            },
+            success: function (data) {
+                if(data != null){
+                    let ForumCat='';
+                    const screen=data['screen'];
+                    const plans = data['plans'];
+                    $.each(screen['images'], function(k,v) {
+                        if ( k === 0) {
+                            ForumCat +='<div class="area-img-wrapper"> '+
+                                ' <img src="/images/screens/'+v['img']+'"/>'+
+                                '</div>';
+                        }
+                    });
+
+                    ForumCat +='<div class="content">'+
+                            '<h4 class="position-relative">'+screen['default_translation']['title']+''+
+                    ' <div class="before-shape">'+
+                    ' <img class="img-fluid" src="/Front/assets/images/maraseel-shape.png" alt="'+screen['default_translation']['title']+'" />'+
+                            '</div>'+
+                        '</h4>'+
+                    ' <p>'+screen['default_translation']['description']+'</p>'+
+                    '</div>' +
+                        '<div class="row">';
+                    $.each(screen['images'], function(k,v) {
+                            ForumCat +='<div class="screen_bx_img p-2 col-6"> '+
+                                '<img src="/images/screens/'+v['img']+'"/>'+
+                                '</div>';
+                    });
+                    ForumCat +='</div>';
+                    $.each(plans, function (e,w){
+                        ForumCat += '<div class="pricing-table mt-5 colored">\n' +
+                            '              <div class="header-label">\n' +
+                            '                <h5><span>'+w['default_translation']['title']+' - '+w['num_views']+'</span> Appearances Per Day</h5>\n' +
+                            '              </div>\n' +
+                            '              <table>\n' +
+                            '                <tbody>' +
+                            '<tr class="head">\n' +
+                            '                  <th>Period</th>\n' +
+                            '                  <th>Price</th>\n' +
+                            '                  <th>Discount</th>\n' +
+                            '                  <th>New Price</th>\n' +
+                            '                </tr>' ;
+                        $.each(w['screen_price'], function (l,y) {
+                            ForumCat+='<tr>\n' +
+                                '                  <td>'+y['default_translation']['title']+'</td>\n' +
+                                '                  <td>'+y['price']+'</td>\n' +
+                                '                  <td>'+y['discount']+'</td>\n' +
+                                '                  <td>'+y.priceAfterDiscount+'</td>\n' +
+                                '                </tr>';
+                        })
+                            ForumCat+= '</tbody>' +
+                            '</table>\n' +
+                            '</div>';
+                    });
+                    ForumCat +='</div>';
+                    area.html(ForumCat);
+                }
+            },
+        });
+        $( '#area-side-menu' ).addClass( 'active' );
+    });
+
+
+    $( 'area' ).on( 'click', function (e) {
+        e.preventDefault();
+        const id = $(this).attr('id');
+        const viewer = $( '#signages-viewer' );
+        $.ajax({
+            url: '/getScreens/'+id,
+            type: 'get',
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+            },
+            beforeSend: function () {
+               $("#cms-loadding").show();
+            },
+            complete: function () {
+                $("#cms-loadding").hide();
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+            },
+            success: function (data) {
+                if(data != null){
+                    var ForumCat='';
+                    ForumCat +='<div class="row p-3">';
+                    viewer.addClass( 'no-after' );
+                    $.each(data, function(k,v) {
+                        console.log(v);
+                        ForumCat +='<div id="'+v['id']+'" class="col-6 col-lg-4 col-md-4 col-sm-6 col-xs-6 screen_bx">\n' +
+                            '<a title="'+v['default_translation']['title']+'"> ' +
+                            '<span>'+v['default_translation']['title']+'</span>' +
+                            '</a>\n' +
+                            '</div>';
+                    });
+                    ForumCat +='</div>';
+                    viewer.html(ForumCat);
+                }
+            },
+        });
+        // alert(id);
+        // var relatedSrc = $( this ).attr( 'target' );
+        //
+        // $( '#signages-viewer .play-bt-wrap' ).fadeOut();
+        // $( '#signages-viewer img' ).attr( 'src', relatedSrc );
     } );
 
     $("#sendMsg").click(function (e) {
@@ -224,9 +347,9 @@ $( function () {
     }
 
     // Initiate PhotoSwipe
-    // Fancybox.bind('[data-fancybox]', {
-    //   autoplay: true,
-    // });
+    Fancybox.bind("[data-fancybox]", {
+        // Your custom options
+    });
 
     // main script
     // handle navbar scroll

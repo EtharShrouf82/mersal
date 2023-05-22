@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('plans', function (Blueprint $table) {
             $table->id();
             $table->boolean('status')->default(1);
-            $table->integer('screen_type_id');
+            $table->foreignId('screen_type_id')->constrained();
             $table->integer('num_views');
             $table->foreignId('user_id')->constrained();
             $table->softDeletes();

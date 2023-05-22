@@ -22,6 +22,12 @@ class SliderTableSeeder extends Seeder
             'user_id' => User::all()->random()->id,
         ]);
         Slider::create([
+            'img' => 'banner-02.jpg',
+            'status' => 1,
+            'user_id' => User::all()->random()->id,
+        ]);
+
+        Slider::create([
             'img' => 'banner-03.jpg',
             'status' => 1,
             'user_id' => User::all()->random()->id,

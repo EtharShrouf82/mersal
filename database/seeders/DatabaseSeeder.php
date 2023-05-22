@@ -32,6 +32,8 @@ class DatabaseSeeder extends Seeder
             ProductTableSeeder::class,
             ServiceDescriptionTableSeeder::class,
             WorkSampleTableSeeder::class,
+            WhyDigitalTableSeeder::class,
+            JobsTableSeeder::class,
         ]);
 
         // \App\Models\User::factory(10)->create();

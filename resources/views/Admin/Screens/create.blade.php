@@ -19,22 +19,18 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-6">
-                        <h5 class="mb-2">النوع</h5>
-                        <select name="screen_type_id" required class="form-control">
-                            <option value="">الرجاء إختيار النوع</option>
-                            @foreach($screenType as $type)
-                                <option value="{{ $type->id }}">{{ $type->title }}</option>
-                            @endforeach
-                        </select>
+                    <div id="showCity">
+
                     </div>
+                    <input type="text" name="position_X" id="position_X">
+                    <input type="text" name="position_y" id="position_y">
                 </div>
             </div>
         </div>
         <div class="card m-3">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-4">
                         <h5 class="mb-2">إسم الشاشة</h5>
                         @error('title')
                         <div class="alert alert-danger">{{$message}}</div>
@@ -45,8 +41,7 @@
                                    required="">
                         </div>
                     </div>
-                    <div class="col-6">
-                        <div class="col-6">
+                        <div class="col-4">
                             <label for="price" class="form-label">حالة (الظهور بالموقع)</label>
                             <div class="clearfix"></div>
                             @error('status')
@@ -76,10 +71,18 @@
                                 </label>
                             </div>
                         </div>
+                    <div class="col-4">
+                        <h5 class="mb-2">النوع</h5>
+                        <select name="screen_type_id" required class="form-control">
+                            <option value="">الرجاء إختيار النوع</option>
+                            @foreach($screenType as $type)
+                                <option value="{{ $type->id }}">{{ $type->title }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     </div>
                 </div>
             </div>
-        </div>
         <div class="card m-3">
             <div class="card-body">
                 <h5 class="mb-2">وصف الشاشة</h5>

@@ -1,6 +1,6 @@
 <header
     class="bg-cover advantages-header"
-    style="background-image: url({{ asset('Front/assets/images/advantges-bg.png') }})"
+    style="background-image: url({{ asset('Front/assets/images/digital.png') }})"
 >
     <div class="outlined-circle top"></div>
     <div class="outlined-circle bottom"></div>
@@ -42,18 +42,8 @@
             <div class="row gy-4">
                 <div class="col-xl-7 col-lg-6">
                     <div class="content">
-                        <h2>The Future Is Here</h2>
-                        <p class="text-white">
-                            In a world where competition is accelerating. It is very
-                            important to have new ideas to roll out your products in a
-                            distinctive and innovative way. Digital advertising technology
-                            is one of the most important modern technologies for
-                            advertising, since this way of ads enables the companies to
-                            achieve its aspirations from advertising campaign such as
-                            attracting the attention of their target audiences, providing
-                            more relevant and attractive messages, promoting and
-                            solidifying their identity as well as increasing the sales.
-                        </p>
+                        <h2>{{ $digitalTxt->translations->digital_title }}</h2>
+                        <p class="text-white">{{ $digitalTxt->translations->digital_text }}</p>
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-5 offset-xl-1">

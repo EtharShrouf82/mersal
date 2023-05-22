@@ -6,7 +6,7 @@
     >
         <div class="container">
             <div class="inner-wrapper anim">
-                <h1 class="h2">Services And Products</h1>
+                <h1 class="h2">{{ __('translations.ServicesAndProducts') }}</h1>
             </div>
         </div>
     </header>
@@ -22,7 +22,6 @@
                                 <span class="title">{{ $service->title }}</span>
                             </h4>
                             <div class="description mt-5">
-                                <h6 class="text-black">Description</h6>
                                 <p>{!! $service->description !!}</p>
                             </div>
                         </div>
@@ -84,20 +83,7 @@
                                 @endif
                             @endforeach
                             <div class="mt-5 mb-5"></div>
-                            <div class="order-service-wrap mt-5">
-                                <div class="play-btn-wrapper d-flex align-items-center justify-content-center">
-                                    <div class="mr-5">Order This Service</div>
-                                    <div class="play-btn play-service-button ml-5 mr-5">
-                                        <button tabindex="0">
-                                            <i class="fa-brands fa-whatsapp fa-beat-fade fa-2x" style="color: #ffffff;"></i>
-                                        </button>
-                                    </div>
-                                    <div class="ml-5">
-                                        Or Call<br/>
-                                        02 01061245741
-                                    </div>
-                                </div>
-                            </div>
+                            @include("Front.inc.partials.whats_call_subscribe")
                         </div>
                     </div>
                 </div>

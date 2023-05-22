@@ -62,35 +62,13 @@
                                                             <td>${{ $price->price }}</td>
                                                             <td>{{ $price->title }}</td>
                                                             <td>%{{ $price->discount }}</td>
-                                                            <td>${{ $price->getPriceAfterDiscount() }}</td>
+                                                            <td>${{ $price->priceAfterDiscount }}</td>
                                                         </tr>
                                                     @endforeach
                                                 </table>
                                             </div>
                                             <div class="subscribe-wrap">
-                                                <button class="subscribe-btn">
-                                                    <span>Subscripe Now</span>
-                                                    <span
-                                                    ><svg
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            width="5.914"
-                                                            height="9.828"
-                                                            viewBox="0 0 5.914 9.828"
-                                                        >
-                                <path
-                                    id="Icon_feather-chevron-down"
-                                    data-name="Icon feather-chevron-down"
-                                    d="M0,3.5,3.5,0,7,3.5"
-                                    transform="translate(4.914 1.414) rotate(90)"
-                                    fill="none"
-                                    stroke="#fff"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                />
-                              </svg>
-                            </span>
-                                                </button>
+                                                @include("Front.inc.partials.whats_subscribe")
                                             </div>
                                         </div>
                                     @endforeach

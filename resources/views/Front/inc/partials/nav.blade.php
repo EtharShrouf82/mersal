@@ -1,4 +1,4 @@
-<nav id="navbar" class="navbar without-border">
+<nav id="navbar" class="navbar @if(request()->segment(2) != null) white-navbar @endif without-border">
     <div class="container">
         <a class="navbar-brand" href="/" title="maraseel">
             <img src="{{ asset('/Front/assets/images/logo.svg') }}" alt="maraseel" />

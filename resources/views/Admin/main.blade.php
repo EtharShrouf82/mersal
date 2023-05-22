@@ -197,6 +197,24 @@
                     </a>
                 </li>
             @endcan
+            @can('jobs')
+                <li class="mainLi">
+                    <a href="{{ route('jobs.index') }}" class="maina {{ (request()->segment(3) == 'jobs') ? 'active' : '' }}">
+                        <i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+                        <span>الوظائف</span>
+                        <span class="counter left"></span>
+                    </a>
+                </li>
+            @endcan
+            @can('jobs_apply')
+                <li class="mainLi">
+                    <a href="{{ route('jobs_apply.index') }}" class="maina {{ (request()->segment(3) == 'jobs_apply') ? 'active' : '' }}">
+                        <i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+                        <span>المتقدمين للوظائف</span>
+                        <span class="counter left"></span>
+                    </a>
+                </li>
+            @endcan
             @can('services')
                 <li class="mainLi">
                     <a href="{{ route('service.index') }}" class="maina {{ (request()->segment(3) == 'service') ? 'active' : '' }}">

@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\JobApplyController;
+use App\Http\Controllers\Admin\JobController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\MechanismController;
 use App\Http\Controllers\Admin\PermissionController;
@@ -74,6 +76,12 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
             Route::resource('/about_us', AboutUsController::class);
             Route::get('/about_us/status/update', [AboutUsController::class, 'updateStatus'])->name('about_us.update.status');
 
+            Route::resource('/jobs', JobController::class);
+            Route::get('/job/status/update', [JobController::class, 'updateStatus'])->name('job.update.status');
+
+            Route::resource('/jobs_apply', JobApplyController::class);
+            Route::get('/job_apply/status/update', [JobApplyController::class, 'updateStatus'])->name('job_apply.update.status');
+
             Route::resource('/contact_us', ContactUsController::class);
             Route::get('/contact_us/status/update', [ContactUsController::class, 'updateStatus'])->name('contact_us.update.status');
             Route::get('/contact_us/show/{id}', [ContactUsController::class, 'show']);
@@ -93,6 +101,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
                 Route::post('/uploads/uploadScreens', 'uploadScreens')->name('uploadScreens');
                 Route::post('/uploads/uploadService', 'uploadService')->name('uploadService');
                 Route::post('/uploads/uploadClient', 'uploadClient')->name('uploadClient');
+                Route::post('/uploadJob/uploadJob', 'uploadJob')->name('uploadJob');
                 //                Route::post('/forala/action', 'UploadController@index')->name('uploadfile');
                 //                Route::post('/uploads/upload', 'UploadController@upload')->name('uploadfiles');
                 //                Route::post('/uploads/uploadBrand', 'UploadController@uploadBrand')->name('uploadBrand');
